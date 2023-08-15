@@ -15,7 +15,7 @@ local sources = {
   b.formatting.clang_format,
 
   -- python
-  b.formatting.black,
+  b.formatting.pyink,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
