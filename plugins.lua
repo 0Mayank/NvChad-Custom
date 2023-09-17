@@ -53,8 +53,39 @@ local plugins = {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    lazy = false,
   },
 
+  {
+    "saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    ft = { "rust", "toml" },
+    requires = { { "nvim-lua/plenary.nvim" } },
+    config = function(_, opts)
+      local crates = require "crates"
+      crates.setup(opts)
+      crates.show()
+    end,
+  },
+  
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {},
+  },
+
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+    dependencies = "neovim/nvim-lspconfig",
+    opts = function()
+      return require "custom.configs.rust-tools"
+    end,
+    config = function(_, opts)
+      require("rust-tools").setup(opts)
+    end,
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

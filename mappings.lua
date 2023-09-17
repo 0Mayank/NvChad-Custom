@@ -7,6 +7,10 @@ M.general = {
   },
 }
 
--- more keybinds!
+M.lazygit = {
+  n = {
+    ["<leader>lg"] = {"<cmd> LazyGit <cr>", "open lazygit", opts = {silent=true, noremap=true}},
+  }
+}
 
 return M

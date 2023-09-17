@@ -16,6 +16,12 @@ local sources = {
 
   -- python
   b.formatting.pyink,
+
+  b.formatting.golines,
+
+  b.formatting.rustfmt.with {
+    extra_args = {"--edition=2021"}
+  },
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
