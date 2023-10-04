@@ -35,7 +35,19 @@ local plugins = {
 
   {
     "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+
+        "go",
+        "rust",
+        "python",
+
+        "c",
+        "c++"
+      }
+    },
   },
 
   -- Install a plugin
